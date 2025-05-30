@@ -8,7 +8,7 @@ It includes:
 
 - A reproducible Python data science environment
 - Proper `.gitignore` and dependency management
-- GitHub Actions CI workflow for clean installs
+- GitHub Actions CI workflow for clean installs and testing
 - Structured code for sentiment analysis, EDA, and time-series modeling
 
 The goal is to uncover actionable insights by linking headline sentiment to daily stock returns and suggesting predictive strategies for future price movement.
@@ -64,6 +64,8 @@ financial-news-impact-analysis/
 ├── README.md                  # Project documentation
 ├── notebooks/                 # Jupyter notebooks
 │   └── README.md
+├── tests/                     # Testing utilities
+│   ├── __init__.py
 ├── scripts/                   # Script utilities
 │   ├── __init__.py
 │   └── README.md
@@ -78,6 +80,7 @@ A continuous integration workflow is configured to automatically run when change
 
 - Uses **Python 3.13.1**
 - Installs dependencies from `requirements.txt`
+- Runs basic tests from `/tests`
 - Workflow is defined in `.github/workflows/ci.yml`
 
 You can view its status in the **Actions** tab of the GitHub repository.
