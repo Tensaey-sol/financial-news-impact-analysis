@@ -1,6 +1,17 @@
-def count_articles_per_publisher(df):
-    return df['publisher'].value_counts()
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-def extract_publisher_domains(df):
-    df['publisher_domain'] = df['publisher'].apply(lambda x: x.split('@')[1] if '@' in x else 'N/A')
-    return df['publisher_domain'].value_counts()
+def extract_domain(publisher):
+    if "@" in publisher:
+        return publisher.split("@")[1].lower()
+    return publisher.lower()
+
+def analyze_domains(news_df):
+    news_df["publisher_domain"] = news_df["publisher"].apply(extract_domain)
+    domain_counts = news_df["publisher_domain"].value_counts().head(10)
+    print("\nTop Email Domains:\n", domain_counts)
+
+    sns.barplot(x=domain_counts.values, y=domain_counts.index)
+    plt.title("Top Publishing Domains")
+    plt.xlabel("Article Count")
+    plt.show()
