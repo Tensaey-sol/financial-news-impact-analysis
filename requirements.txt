@@ -5,3 +5,5 @@ scikit-learn==1.6.1
 seaborn==0.13.2
 vaderSentiment==3.3.2
 wordcloud==1.9.4
+ta-lib==0.6.3
+pynance==1.0.0
