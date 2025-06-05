@@ -1,0 +1,40 @@
+import matplotlib.pyplot as plt
+
+def plot_price_with_indicators(df, title="Stock Price with Indicators"):
+    plt.figure(figsize=(14, 6))
+    plt.plot(df['date'], df['close'], label='Close')
+    if 'SMA20' in df: plt.plot(df['date'], df['SMA20'], label='SMA20')
+    if 'SMA50' in df: plt.plot(df['date'], df['SMA50'], label='SMA50')
+    plt.title(title)
+    plt.xlabel("Date")
+    plt.ylabel("Price")
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+def plot_rsi(df, rsi_column='rsi', title="RSI Indicator"):
+    plt.figure(figsize=(14, 4))
+    plt.plot(df['date'], df[rsi_column], label='RSI', color='purple')
+    plt.axhline(70, linestyle='--', color='red', label='Overbought (70)')
+    plt.axhline(30, linestyle='--', color='green', label='Oversold (30)')
+    plt.title(title)
+    plt.xlabel("Date")
+    plt.ylabel("RSI")
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+def plot_macd(df, macd_col='macd', signal_col='macd_signal', hist_col='macd_hist', title="MACD Indicator"):
+    plt.figure(figsize=(14, 4))
+    plt.plot(df['date'], df[macd_col], label='MACD', color='blue')
+    plt.plot(df['date'], df[signal_col], label='Signal Line', color='orange')
+    plt.bar(df['date'], df[hist_col], label='Histogram', color='lightcoral', width=1)
+    plt.axhline(0, linestyle='--', color='gray')
+    plt.title(title)
+    plt.xlabel("Date")
+    plt.ylabel("MACD")
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
