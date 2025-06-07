@@ -69,6 +69,7 @@ financial-news-impact-analysis/
 ├── scripts/                   # Script utilities
 │   ├── __init__.py
 │   └── README.md
+├── data/                      # Raw and processed datasets (ignored via .gitignore)
 └── .venv/                     # Local virtual environment (excluded from version control)
 ```
 
